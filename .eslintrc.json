@@ -11,6 +11,7 @@
   "rules": {
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "react/react-in-jsx-scope": "off",
-    "sort-imports": "error"
+    "sort-imports": "error",
+    "@next/next/no-html-link-for-pages": "off"
   }
 }
