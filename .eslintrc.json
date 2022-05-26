@@ -7,14 +7,10 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "plugins": [
-    "eslint-plugin-prettier",
-    "jsx-a11y",
-    "react",
-    "react-hooks"
-  ],
+  "plugins": ["prettier", "jsx-a11y", "react", "react-hooks"],
   "rules": {
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "sort-imports": "error"
   }
 }

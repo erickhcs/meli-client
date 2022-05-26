@@ -1,7 +1,5 @@
 import * as S from "./styles";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 export const SearchInput = () => {
   return (
@@ -13,7 +11,7 @@ export const SearchInput = () => {
         maxLength={120}
       />
       <S.Button type="submit">
-        <FontAwesomeIcon icon={faMagnifyingGlass} width={16} height={16} />
+        <Image src="/search_icon.png" alt="Buscar" width={18} height={18} />
       </S.Button>
     </>
   );
