@@ -1,8 +1,10 @@
 import * as S from "./styles";
 import { ChangeEvent, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export const SearchInput = () => {
+  const router = useRouter();
   const [search, setSearch] = useState("");
 
   function handleSearchChange(e: ChangeEvent<HTMLInputElement>) {
@@ -11,6 +13,7 @@ export const SearchInput = () => {
 
   function handleSearchButtonClick() {
     setSearch("");
+    router.push(`items?search=${search}`);
   }
 
   return (
