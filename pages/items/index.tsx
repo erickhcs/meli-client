@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
+import { Breadcrumb } from "components/Breadcrumb";
 import Head from "next/head";
+
+import { ItemsSearch } from "src/models";
+import { ListItem } from "components/ListItem";
 import type { NextPage } from "next";
 import { SearchBar } from "components/SearchBar";
 import { getItems } from "src/api";
@@ -7,14 +11,14 @@ import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const [items, setItems] = useState();
+  const [itemsSearch, setItemsSearch] = useState<ItemsSearch | undefined>();
   const search = router.query.search as string;
 
   useEffect(() => {
     const fetchItems = async () => {
       const response = await getItems(search);
 
-      setItems(response);
+      setItemsSearch(response);
     };
 
     if (search) {
@@ -22,7 +26,7 @@ const Home: NextPage = () => {
     }
   }, [search]);
 
-  console.log(items);
+  console.log(itemsSearch);
 
   return (
     <div>
@@ -37,6 +41,8 @@ const Home: NextPage = () => {
 
       <main>
         <SearchBar />
+        {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
+        {itemsSearch && <ListItem items={itemsSearch.items} />}
       </main>
     </div>
   );

@@ -13,12 +13,7 @@ server.routes([
             name: "Erick",
             lastname: "Silva",
           },
-          categories: [
-            {
-              id: "MLA1051",
-              name: "Celulares y Teléfonos",
-            },
-          ],
+          categories: ["Electronica, Audio y Video", "iPhone", "64 GB"],
           items: [
             {
               id: "MLA1127715651",
