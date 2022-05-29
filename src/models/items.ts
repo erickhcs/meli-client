@@ -6,6 +6,9 @@ export type Item = {
     amount: number;
     decimals: number;
   };
+  address: {
+    city_name: String;
+  };
   picture: string;
   condition: string;
   free_shipping: boolean;
