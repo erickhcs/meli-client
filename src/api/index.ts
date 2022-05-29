@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 export const getItems = async (search: string) => {
-  const { data } = await instance.get(`items?q:${search}`);
+  const { data } = await instance.get(`items?q=${search}`);
 
   return data;
 };

@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "git-cz",
-    "prepare": "husky install",
-    "fake-backend": "nodemon ./tools/fake-backend/index.js"
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "0.27.2",
@@ -32,7 +31,6 @@
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
     "git-cz": "4.9.0",
-    "graphql": "16.5.0",
     "husky": "8.0.0",
     "nodemon": "2.0.16",
     "prettier": "2.6.2",
