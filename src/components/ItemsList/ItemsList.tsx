@@ -9,11 +9,9 @@ type ItemsListProps = {
 };
 
 export const ItemsList: React.FC<ItemsListProps> = ({ items }) => {
-  const itemsToRender = items.slice(0, 4);
-
   return (
     <S.Container>
-      {itemsToRender.map((item) => (
+      {items.map((item) => (
         <Item item={item} key={item.id} />
       ))}
     </S.Container>
