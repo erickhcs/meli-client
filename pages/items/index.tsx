@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Breadcrumb } from "components/Breadcrumb";
+import { Container } from "components/Container";
 import Head from "next/head";
 
+import { ItemsList } from "components/ItemsList";
 import { ItemsSearch } from "src/models";
-import { ListItem } from "components/ListItem";
 import type { NextPage } from "next";
 import { SearchBar } from "components/SearchBar";
 import { getItems } from "src/api";
@@ -41,8 +42,12 @@ const Home: NextPage = () => {
 
       <main>
         <SearchBar />
-        {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
-        {itemsSearch && <ListItem items={itemsSearch.items} />}
+        <Container>
+          <>
+            {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
+            {itemsSearch && <ItemsList items={itemsSearch.items} />}
+          </>
+        </Container>
       </main>
     </div>
   );
