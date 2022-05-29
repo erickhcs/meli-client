@@ -8,13 +8,11 @@ type ListItemProps = {
 };
 
 export const ListItem: React.FC<ListItemProps> = ({ items }) => {
-  const itemsToRender = items.slice(0, 4);
-
   return (
     <div>
       <h1>ListItem</h1>
       <ul>
-        {itemsToRender.map((item) => (
+        {items.map((item) => (
           <li key={item.id}>
             <Link href={`/items/${item.id}`}>
               <a>{item.title}</a>
