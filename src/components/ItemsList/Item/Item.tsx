@@ -21,7 +21,6 @@ export const Item: React.FC<ItemProps> = ({ item }) => {
   } = item;
   const formattedCurrency = new Money(currency, amount).format();
 
-  console.log(formattedCurrency);
   return (
     <li>
       <S.Container>

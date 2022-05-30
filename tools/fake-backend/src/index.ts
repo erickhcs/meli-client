@@ -4,7 +4,7 @@ const server = createServer({
   proxies: [
     {
       name: "Meli BFF",
-      host: "http://localhost:8000",
+      host: "http://localhost:8090",
     },
   ],
   throttlings: [
@@ -25,6 +25,15 @@ server.routes([
       },
     ],
   },
+  {
+    path: "/api/items/:id",
+    methods: [
+      {
+        type: MethodType.GET,
+        file: "data/meli-bff/items/:id/index.json",
+      },
+    ],
+  },
 ]);
 
-server.listen(8080);
+server.listen(8081);

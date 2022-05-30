@@ -4,7 +4,7 @@ import { Container } from "components/Container";
 import Head from "next/head";
 
 import { ItemsList } from "components/ItemsList";
-import { ItemsSearch } from "src/models";
+import { ItemsResponse } from "src/models";
 import type { NextPage } from "next";
 import { SearchBar } from "components/SearchBar";
 import { getItems } from "src/api";
@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const [itemsSearch, setItemsSearch] = useState<ItemsSearch | undefined>();
+  const [itemsSearch, setItemsSearch] = useState<ItemsResponse | undefined>();
   const search = router.query.search as string;
 
   useEffect(() => {
@@ -26,8 +26,6 @@ const Home: NextPage = () => {
       fetchItems();
     }
   }, [search]);
-
-  console.log(itemsSearch);
 
   return (
     <div>

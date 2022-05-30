@@ -33,12 +33,12 @@ export const PriceContainer = styled.div`
 
 export const PriceText = styled.p`
   font-size: 24px;
-  margin: 0;
+  margin: 0 0 0 16px;
 `;
 
 export const Text = styled.p`
   font-size: 18px;
-  margin: 0;
+  margin: 0 0 0 16px;
 `;
 
 export const CityNameText = styled.p`
