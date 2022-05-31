@@ -13,7 +13,8 @@ export const SearchInput = () => {
 
   function handleSearchButtonClick() {
     setSearch("");
-    router.push(`items?search=${search}`);
+
+    router.push(`/items?search=${search}`);
   }
 
   function handleKeyUp(e: KeyboardEvent<HTMLInputElement>) {

@@ -19,6 +19,7 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
     price: { currency, amount },
   } = item;
   const formattedCurrency = new Money(currency, amount).format();
+  const conditionLabel = condition === "new" ? "Novo" : "Usado";
 
   return (
     <S.Container>
@@ -26,13 +27,13 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
         <Image src={picture} alt="Buscar" width={250} height={500} />
       </div>
       <div>
-        <p>
-          {condition} {sold_quantity} vendidos
-        </p>
+        <S.ConditionText>
+          {conditionLabel} - {sold_quantity} vendidos
+        </S.ConditionText>
 
-        <h1>{title}</h1>
-        <p>{formattedCurrency}</p>
-        <button>Comprar</button>
+        <S.ItemTitle>{title}</S.ItemTitle>
+        <S.ItemPrice>{formattedCurrency}</S.ItemPrice>
+        <S.BuyButton>Comprar</S.BuyButton>
       </div>
       <S.DescriptionContainer>
         <S.DescriptionTitle>Descrição do produto</S.DescriptionTitle>
