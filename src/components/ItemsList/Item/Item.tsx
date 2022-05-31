@@ -17,9 +17,9 @@ export const Item: React.FC<ItemProps> = ({ item }) => {
     title,
     free_shipping,
     address: { city_name },
-    price: { currency, amount },
+    price,
   } = item;
-  const formattedCurrency = new Money(currency, amount).format();
+  const formattedCurrency = new Money(price).format();
 
   return (
     <li>

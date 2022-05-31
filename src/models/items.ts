@@ -4,6 +4,7 @@ export type Item = {
   price: {
     currency: string;
     amount: number;
+    decimals: number;
   };
   address: {
     city_name: String;
@@ -30,6 +31,7 @@ export type ItemDetails = {
   price: {
     currency: string;
     amount: number;
+    decimals: number;
   };
   address: {
     city_name: String;

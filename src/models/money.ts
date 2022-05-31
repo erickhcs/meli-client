@@ -1,16 +1,23 @@
+type Price = {
+  currency: string;
+  amount: number;
+  decimals: number;
+};
 export class Money {
-  public currency: string;
-  public amount: number;
+  constructor(public price: Price) {
+    this.price = price;
+  }
 
-  constructor(currency: string, amount: number) {
-    this.currency = currency;
-    this.amount = amount;
+  fullPrice() {
+    return Number(`${this.price.amount}.${this.price.decimals}`);
   }
 
   format() {
+    const fullPrice = this.fullPrice();
+
     return new Intl.NumberFormat(navigator.language, {
       style: "currency",
-      currency: this.currency,
-    }).format(this.amount);
+      currency: this.price.currency,
+    }).format(fullPrice);
   }
 }

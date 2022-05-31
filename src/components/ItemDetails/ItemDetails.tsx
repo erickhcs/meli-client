@@ -10,15 +10,8 @@ type ItemDetailsProps = {
 };
 
 export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
-  const {
-    description,
-    picture,
-    title,
-    condition,
-    sold_quantity,
-    price: { currency, amount },
-  } = item;
-  const formattedCurrency = new Money(currency, amount).format();
+  const { description, picture, title, condition, sold_quantity, price } = item;
+  const formattedCurrency = new Money(price).format();
   const conditionLabel = condition === "new" ? "Novo" : "Usado";
 
   return (

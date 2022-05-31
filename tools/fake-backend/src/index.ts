@@ -4,7 +4,7 @@ const server = createServer({
   proxies: [
     {
       name: "Meli BFF",
-      host: "http://localhost:8090",
+      host: "http://localhost:8000",
     },
   ],
   throttlings: [
@@ -36,4 +36,4 @@ server.routes([
   },
 ]);
 
-server.listen(8081);
+server.listen(8080);
