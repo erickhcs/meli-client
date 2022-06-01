@@ -10,8 +10,7 @@
       "title": "Apple iPhone 12 (128 Gb) - Azul",
       "price": {
         "currency": "BRL",
-        "amount": 8781,
-        "decimals": 0
+        "amount": 8781
       },
       "address": {
         "city_name": "Morón"
@@ -25,8 +24,7 @@
       "title": "Apple iPhone 12 (128 Gb) - Azul",
       "price": {
         "currency": "BRL",
-        "amount": 8781,
-        "decimals": 32
+        "amount": 8781
       },
       "address": {
         "city_name": "Morón"
@@ -40,8 +38,7 @@
       "title": "Apple iPhone 12 (128 Gb) - Azul",
       "price": {
         "currency": "BRL",
-        "amount": 8781,
-        "decimals": 32
+        "amount": 8781
       },
       "address": {
         "city_name": "Morón"
@@ -55,8 +52,7 @@
       "title": "Apple iPhone 12 (128 Gb) - Azul",
       "price": {
         "currency": "BRL",
-        "amount": 8781,
-        "decimals": 32
+        "amount": 8781
       },
       "address": {
         "city_name": "Morón"

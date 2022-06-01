@@ -16,9 +16,15 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
 
   return (
     <S.Container>
-      <div>
-        <Image src={picture} alt="Buscar" width={250} height={500} />
-      </div>
+      <S.ImageContainer>
+        <Image
+          src={picture}
+          alt="Foto do produto"
+          objectFit="contain"
+          width={340}
+          height={680}
+        />
+      </S.ImageContainer>
       <div>
         <S.ConditionText>
           {conditionLabel} - {sold_quantity} vendidos
@@ -28,10 +34,13 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
         <S.ItemPrice>{formattedCurrency}</S.ItemPrice>
         <S.BuyButton>Comprar</S.BuyButton>
       </div>
-      <S.DescriptionContainer>
-        <S.DescriptionTitle>Descrição do produto</S.DescriptionTitle>
-        <S.DescriptionText>{description}</S.DescriptionText>
-      </S.DescriptionContainer>
+
+      {description && (
+        <S.DescriptionContainer>
+          <S.DescriptionTitle>Descrição do produto</S.DescriptionTitle>
+          <S.DescriptionText>{description}</S.DescriptionText>
+        </S.DescriptionContainer>
+      )}
     </S.Container>
   );
 };

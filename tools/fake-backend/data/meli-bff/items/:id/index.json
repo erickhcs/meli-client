@@ -11,7 +11,10 @@
       "currency": "ARS",
       "amount": 221781
     },
-    "picture": "https://http2.mlstatic.com/D_839818-MLA45719894955_042021-O.jpg",
+    "address": {
+      "city_name": "Morón"
+    },
+    "picture": "https://http2.mlstatic.com/D_811145-MLA46552118545_062021-O.jpg",
     "condition": "new",
     "free_shipping": true,
     "sold_quantity": 0,

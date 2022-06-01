@@ -51,3 +51,7 @@ export const BuyButton = styled.button`
   border-radius: 6px;
   font-size: 16px;
 `;
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
