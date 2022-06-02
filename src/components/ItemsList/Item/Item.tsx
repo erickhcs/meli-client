@@ -5,12 +5,16 @@ import { Item as ItemType } from "src/models";
 import Link from "next/link";
 import { Money } from "src/models";
 import React from "react";
+import { useTranslation } from "next-i18next";
 
 type ItemProps = {
   item: ItemType;
 };
 
 export const Item: React.FC<ItemProps> = ({ item }) => {
+  const { t: translateCommon } = useTranslation("common");
+  const { t: translateList } = useTranslation("item_list");
+
   const {
     id,
     picture,
@@ -27,7 +31,12 @@ export const Item: React.FC<ItemProps> = ({ item }) => {
         <S.ImageContainer>
           <Link href={`/items/${id}`}>
             <a>
-              <S.Image src={picture} alt="Buscar" width={180} height={180} />
+              <S.Image
+                src={picture}
+                alt={translateCommon("item_picture_alt")}
+                width={180}
+                height={180}
+              />
             </a>
           </Link>
         </S.ImageContainer>
@@ -40,7 +49,7 @@ export const Item: React.FC<ItemProps> = ({ item }) => {
                 {free_shipping && (
                   <Image
                     src="/shipping.png"
-                    alt="Shipping icon"
+                    alt={translateList("shipping_icon_alt")}
                     width={18}
                     height={18}
                   />

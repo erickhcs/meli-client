@@ -1,16 +1,14 @@
+import type { GetServerSideProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import { Breadcrumb } from "components/Breadcrumb";
-import { Container } from "components/Container";
-import Head from "next/head";
-
 import { ItemsList } from "components/ItemsList";
 import { ItemsResponse } from "src/models";
-import type { NextPage } from "next";
-import { SearchBar } from "components/SearchBar";
+import { Page } from "components/Page";
 import { getItems } from "src/api";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
-const Home: NextPage = () => {
+const ItemListPage: NextPage = () => {
   const router = useRouter();
   const [itemsSearch, setItemsSearch] = useState<ItemsResponse | undefined>();
   const search = router.query.search as string;
@@ -28,27 +26,25 @@ const Home: NextPage = () => {
   }, [search]);
 
   return (
-    <div>
-      <Head>
-        <title>Mercado Livre Brasil - Frete Grátis no mesmo dia</title>
-        <meta
-          name="description"
-          content="Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis."
-        />
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
-
-      <main>
-        <SearchBar />
-        <Container>
-          <>
-            {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
-            {itemsSearch && <ItemsList items={itemsSearch.items} />}
-          </>
-        </Container>
-      </main>
-    </div>
+    <Page>
+      <>
+        {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
+        {itemsSearch && <ItemsList items={itemsSearch.items} />}
+      </>
+    </Page>
   );
 };
 
-export default Home;
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || "", [
+        "common",
+        "item_details",
+        "item_list",
+      ])),
+    },
+  };
+};
+
+export default ItemListPage;

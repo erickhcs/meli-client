@@ -1,15 +1,14 @@
+import type { GetServerSideProps, NextPage } from "next";
 import { useEffect, useState } from "react";
 import { Breadcrumb } from "components/Breadcrumb";
-import { Container } from "components/Container";
-import Head from "next/head";
 import { ItemDetails } from "components/ItemDetails";
 import { ItemDetailsResponse } from "src/models";
-import type { NextPage } from "next";
-import { SearchBar } from "components/SearchBar";
+import { Page } from "components/Page";
 import { getItemDetails } from "src/api";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 
-const Home: NextPage = () => {
+const ItemDetailsPage: NextPage = () => {
   const router = useRouter();
   const id = router.query.id as string;
   const [itemDetails, setItemDetails] = useState<
@@ -29,27 +28,25 @@ const Home: NextPage = () => {
   }, [id]);
 
   return (
-    <div>
-      <Head>
-        <title>Mercado Livre Brasil - Frete Grátis no mesmo dia</title>
-        <meta
-          name="description"
-          content="Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis."
-        />
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
-
-      <main>
-        <SearchBar />
-        <Container>
-          <>
-            {itemDetails && <Breadcrumb categories={itemDetails.categories} />}
-            {itemDetails && <ItemDetails item={itemDetails.item} />}
-          </>
-        </Container>
-      </main>
-    </div>
+    <Page>
+      <>
+        {itemDetails && <Breadcrumb categories={itemDetails.categories} />}
+        {itemDetails && <ItemDetails item={itemDetails.item} />}
+      </>
+    </Page>
   );
 };
 
-export default Home;
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || "", [
+        "common",
+        "item_details",
+        "item_list",
+      ])),
+    },
+  };
+};
+
+export default ItemDetailsPage;

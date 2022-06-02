@@ -1,0 +1,6 @@
+{
+  "buy_button_label": "Compra",
+  "condition_new_label": "Nuevo - {{sold_quantity}} vendido",
+  "condition_used_label": "Usado - {{sold_quantity}} vendido",
+  "item_description_label": "Descripción del producto"
+}

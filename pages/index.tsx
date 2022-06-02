@@ -1,24 +1,19 @@
-import Head from "next/head";
-import type { NextPage } from "next";
-import { SearchBar } from "components/SearchBar";
+import type { GetServerSideProps, NextPage } from "next";
+import { Page } from "components/Page";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <Head>
-        <title>Mercado Livre Brasil - Frete Grátis no mesmo dia</title>
-        <meta
-          name="description"
-          content="Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis."
-        />
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
+const HomePage: NextPage = () => <Page />;
 
-      <main>
-        <SearchBar />
-      </main>
-    </div>
-  );
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || "", [
+        "common",
+        "item_details",
+        "item_list",
+      ])),
+    },
+  };
 };
 
-export default Home;
+export default HomePage;

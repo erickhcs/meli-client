@@ -2,9 +2,11 @@ import * as S from "./styles";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export const SearchInput = () => {
   const router = useRouter();
+  const { t } = useTranslation("common");
   const [search, setSearch] = useState("");
 
   function handleSearchChange(e: ChangeEvent<HTMLInputElement>) {
@@ -29,13 +31,18 @@ export const SearchInput = () => {
         type="text"
         value={search}
         onChange={handleSearchChange}
-        aria-label="Digite o que você quer encontrar"
-        placeholder="Buscar produtos, marcas e muito mais…"
+        aria-label={t("search_aria_label")}
+        placeholder={t("search_placeholder")}
         onKeyUp={handleKeyUp}
         maxLength={120}
       />
       <S.Button type="submit" onClick={handleSearchButtonClick}>
-        <Image src="/search_icon.png" alt="Buscar" width={18} height={18} />
+        <Image
+          src="/search_icon.png"
+          alt={t("search_icon_alt")}
+          width={18}
+          height={18}
+        />
       </S.Button>
     </>
   );

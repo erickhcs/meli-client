@@ -4,22 +4,25 @@ import Image from "next/image";
 import { ItemDetails as ItemDetailsType } from "src/models";
 import { Money } from "src/models";
 import React from "react";
+import { useTranslation } from "next-i18next";
 
 type ItemDetailsProps = {
   item: ItemDetailsType;
 };
 
 export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
+  const { t: translateCommon } = useTranslation("common");
+  const { t: translateDetails } = useTranslation("item_details");
   const { description, picture, title, condition, sold_quantity, price } = item;
   const formattedCurrency = new Money(price).format();
-  const conditionLabel = condition === "new" ? "Novo" : "Usado";
+  console.log(sold_quantity);
 
   return (
     <S.Container>
       <S.ImageContainer>
         <Image
           src={picture}
-          alt="Foto do produto"
+          alt={translateCommon("item_picture_alt")}
           objectFit="contain"
           width={340}
           height={680}
@@ -27,17 +30,24 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
       </S.ImageContainer>
       <div>
         <S.ConditionText>
-          {conditionLabel} - {sold_quantity} vendidos
+          {translateDetails(
+            condition === "new"
+              ? "condition_new_label"
+              : "condition_used_label",
+            { sold_quantity }
+          )}
         </S.ConditionText>
 
         <S.ItemTitle>{title}</S.ItemTitle>
         <S.ItemPrice>{formattedCurrency}</S.ItemPrice>
-        <S.BuyButton>Comprar</S.BuyButton>
+        <S.BuyButton>{translateDetails("buy_button_label")}</S.BuyButton>
       </div>
 
       {description && (
         <S.DescriptionContainer>
-          <S.DescriptionTitle>Descrição do produto</S.DescriptionTitle>
+          <S.DescriptionTitle>
+            {translateDetails("item_description_label")}
+          </S.DescriptionTitle>
           <S.DescriptionText>{description}</S.DescriptionText>
         </S.DescriptionContainer>
       )}
