@@ -1,9 +1,9 @@
+import { ItemClass, ItemDetailsResponse } from "src/models";
+
 import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
 import { ItemDetails } from "components/ItemDetails";
-import { ItemDetailsResponse } from "src/models";
 import React from "react";
-import { getItemDetails } from "src/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type ItemDetailsPageProps = {
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<ServerProps> = async ({
   locale,
 }) => {
   const id = query.id as string;
-  const response = await getItemDetails(id);
+  const response = await ItemClass.getItemDetails(id);
 
   return {
     props: {

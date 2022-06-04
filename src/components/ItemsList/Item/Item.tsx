@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as S from "./styles";
+
 import Image from "next/image";
 import { Item as ItemType } from "src/models";
 import Link from "next/link";

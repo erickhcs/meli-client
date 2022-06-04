@@ -1,5 +1,7 @@
 import * as S from "./styles";
+
 import { ChangeEvent, KeyboardEvent, useState } from "react";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";

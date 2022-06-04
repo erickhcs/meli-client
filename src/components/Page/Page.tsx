@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+
 import { Container } from "./Container";
 import Head from "next/head";
 import { SearchBar } from "./SearchBar";

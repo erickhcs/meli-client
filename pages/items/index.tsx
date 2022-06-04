@@ -1,9 +1,9 @@
+import { ItemClass, ItemsResponse } from "src/models";
+
 import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
 import { ItemsList } from "components/ItemsList";
-import { ItemsResponse } from "src/models";
 import React from "react";
-import { getItems } from "src/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type ItemListPageProps = {
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<ServerProps> = async ({
   locale,
 }) => {
   const search = query.search as string;
-  const response = await getItems(search);
+  const response = await ItemClass.getItems(search);
 
   return {
     props: {

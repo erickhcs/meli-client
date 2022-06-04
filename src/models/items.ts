@@ -1,3 +1,5 @@
+import { ENV, HTTPClient } from "src/config";
+
 export type Item = {
   id: string;
   title: string;
@@ -49,3 +51,33 @@ export type ItemDetailsResponse = {
   categories: String[];
   item: ItemDetails;
 };
+
+export class ItemClass {
+  static httpClient: HTTPClient;
+
+  static initHTTPClient() {
+    if (!this.httpClient) {
+      this.httpClient = new HTTPClient(`${ENV.API_HOST}/api/`);
+    }
+  }
+
+  static async getItems(search: string) {
+    ItemClass.initHTTPClient();
+
+    const { data } = await ItemClass.httpClient.get<ItemsResponse>(
+      `items?q=${search}`
+    );
+
+    return data;
+  }
+
+  static async getItemDetails(id: string) {
+    ItemClass.initHTTPClient();
+
+    const { data } = await ItemClass.httpClient.get<ItemDetailsResponse>(
+      `items/${id}`
+    );
+
+    return data;
+  }
+}

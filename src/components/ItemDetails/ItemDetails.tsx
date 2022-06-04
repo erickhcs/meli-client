@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as S from "./styles";
+
 import Image from "next/image";
 import { ItemDetails as ItemDetailsType } from "src/models";
 import { Money } from "src/models";

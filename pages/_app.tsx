@@ -1,5 +1,6 @@
 import { GlobalStyle, theme } from "components/GlobalStyles";
 import { useEffect, useState } from "react";
+
 import type { AppProps } from "next/app";
 import { ErrorBoundary } from "components/ErrorBoundary";
 import { Loader } from "components/Loader";

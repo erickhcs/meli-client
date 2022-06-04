@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as S from "./styles";
+
 import { Item } from "./Item";
 import { Items } from "src/models";
 import React from "react";
