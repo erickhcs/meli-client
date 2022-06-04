@@ -7,5 +7,5 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   grid-column-start: 2;
-  margin-bottom: 32px;
+  margin-bottom: ${({ theme }) => theme.space.medium};
 `;

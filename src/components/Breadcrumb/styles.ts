@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const UnorderedList = styled.ul`
   list-style: none;
   padding: 0;
-  font-size: 14px;
-  margin: 16px 0 16px 0;
-  color: #666666;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  margin: ${({ theme }) => `${theme.space.small} 0 ${theme.space.small} 0`};
+  color: ${({ theme }) => theme.colors.gray};
 
   & > li:after {
     content: ">";

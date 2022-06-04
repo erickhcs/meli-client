@@ -1,10 +1,11 @@
+import { GlobalStyle, theme } from "components/GlobalStyles";
 import { useEffect, useState } from "react";
 import type { AppProps } from "next/app";
 import { ErrorBoundary } from "components/ErrorBoundary";
-import { GlobalStyle } from "components/GlobalStyles";
 import { Loader } from "components/Loader";
 import { Page } from "components/Page";
 import Router from "next/router";
+import { ThemeProvider } from "styled-components";
 import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -31,11 +32,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
-      <Page>
-        <ErrorBoundary>
-          {isLoading ? <Loader /> : <Component {...pageProps} />}
-        </ErrorBoundary>
-      </Page>
+      <ThemeProvider theme={theme}>
+        <Page>
+          <ErrorBoundary>
+            {isLoading ? <Loader /> : <Component {...pageProps} />}
+          </ErrorBoundary>
+        </Page>
+      </ThemeProvider>
     </>
   );
 }

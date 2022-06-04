@@ -7,7 +7,7 @@ export const ImageContainer = styled.div`
   grid-row-end: span 2;
 `;
 export const Image = styled(NextImage)`
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius.small};
 `;
 
 export const Container = styled.div`
@@ -15,7 +15,7 @@ export const Container = styled.div`
   grid-template-columns: 2fr 6fr 2fr;
   grid-template-rows: 1fr 1fr;
   background-color: white;
-  padding: 16px;
+  padding: ${({ theme }) => theme.space.small};
 `;
 
 export const DescriptionContainer = styled.div`
@@ -28,22 +28,22 @@ export const PriceContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 0 32px 0;
+  margin: ${({ theme }) => `0 0 ${theme.space.medium} 0`};
 `;
 
 export const PriceText = styled.p`
-  font-size: 24px;
-  margin: 0 0 0 16px;
+  font-size: ${({ theme }) => theme.fontSizes.extraLarge};
+  margin: ${({ theme }) => `0 0 0 ${theme.space.small}`};
 `;
 
 export const Text = styled.p`
-  font-size: 18px;
-  margin: 0 0 0 16px;
+  font-size: ${({ theme }) => theme.fontSizes.large};
+  margin: ${({ theme }) => `0 0 0 ${theme.space.small}`};
 `;
 
 export const CityNameText = styled.p`
-  font-size: 12px;
-  color: #666666;
+  font-size: ${({ theme }) => theme.fontSizes.extraSmall};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 export const CityNameContainer = styled.div`
