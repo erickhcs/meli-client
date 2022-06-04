@@ -2,7 +2,6 @@ import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
 import { ItemsList } from "components/ItemsList";
 import { ItemsResponse } from "src/models";
-import { Page } from "components/Page";
 import React from "react";
 import { getItems } from "src/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -13,12 +12,10 @@ type ItemListPageProps = {
 
 const ItemListPage: React.FC<ItemListPageProps> = ({ itemsSearch }) => {
   return (
-    <Page>
-      <>
-        {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
-        {itemsSearch && <ItemsList items={itemsSearch.items} />}
-      </>
-    </Page>
+    <>
+      {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
+      {itemsSearch && <ItemsList items={itemsSearch.items} />}
+    </>
   );
 };
 

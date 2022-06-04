@@ -2,7 +2,6 @@ import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
 import { ItemDetails } from "components/ItemDetails";
 import { ItemDetailsResponse } from "src/models";
-import { Page } from "components/Page";
 import React from "react";
 import { getItemDetails } from "src/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -13,12 +12,10 @@ type ItemDetailsPageProps = {
 
 const ItemDetailsPage: React.FC<ItemDetailsPageProps> = ({ itemDetails }) => {
   return (
-    <Page>
-      <>
-        {itemDetails && <Breadcrumb categories={itemDetails.categories} />}
-        {itemDetails && <ItemDetails item={itemDetails.item} />}
-      </>
-    </Page>
+    <>
+      {itemDetails && <Breadcrumb categories={itemDetails.categories} />}
+      {itemDetails && <ItemDetails item={itemDetails.item} />}
+    </>
   );
 };
 
