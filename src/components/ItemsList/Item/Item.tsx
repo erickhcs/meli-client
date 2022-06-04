@@ -2,7 +2,7 @@
 import * as S from "./styles";
 
 import Image from "next/image";
-import { Item as ItemType } from "src/models";
+import { ItemType } from "src/models";
 import Link from "next/link";
 import { Money } from "src/models";
 import React from "react";

@@ -12,6 +12,10 @@
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "react/react-in-jsx-scope": "off",
     "sort-imports": "error",
-    "@next/next/no-html-link-for-pages": "off"
+    "@next/next/no-html-link-for-pages": "off",
+    "no-console": "error",
+    "no-unused-vars": "error",
+    "no-debugger": "error",
+    "no-alert": "error"
   }
 }

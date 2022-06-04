@@ -1,11 +1,11 @@
 {
+  "error_message": "Oops, ocorreu um erro!",
   "item_picture_alt": "Imagem do produto",
   "loading_text": "Carregando...",
-  "try_again_question": "Tentar novamente?",
-  "error_message": "Oops, ocorreu um erro!",
   "page_content": "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
   "page_title": "Mercado Livre Brasil - Frete Grátis no mesmo dia",
   "search_aria_label": "Digite o que você quer encontrar",
   "search_icon_alt": "Buscar",
-  "search_placeholder": "Buscar produtos, marcas e muito mais…"
+  "search_placeholder": "Buscar produtos, marcas e muito mais…",
+  "try_again_question": "Tentar novamente?"
 }

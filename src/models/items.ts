@@ -1,6 +1,6 @@
 import { ENV, HTTPClient } from "src/config";
 
-export type Item = {
+export type ItemType = {
   id: string;
   title: string;
   price: {
@@ -15,7 +15,7 @@ export type Item = {
   free_shipping: boolean;
 };
 
-export type Items = Item[];
+export type Items = ItemType[];
 
 export type ItemsResponse = {
   author: {
@@ -52,7 +52,7 @@ export type ItemDetailsResponse = {
   item: ItemDetails;
 };
 
-export class ItemClass {
+export class Item {
   static httpClient: HTTPClient;
 
   static initHTTPClient() {
@@ -62,9 +62,9 @@ export class ItemClass {
   }
 
   static async getItems(search: string) {
-    ItemClass.initHTTPClient();
+    Item.initHTTPClient();
 
-    const { data } = await ItemClass.httpClient.get<ItemsResponse>(
+    const { data } = await Item.httpClient.get<ItemsResponse>(
       `items?q=${search}`
     );
 
@@ -72,9 +72,9 @@ export class ItemClass {
   }
 
   static async getItemDetails(id: string) {
-    ItemClass.initHTTPClient();
+    Item.initHTTPClient();
 
-    const { data } = await ItemClass.httpClient.get<ItemDetailsResponse>(
+    const { data } = await Item.httpClient.get<ItemDetailsResponse>(
       `items/${id}`
     );
 

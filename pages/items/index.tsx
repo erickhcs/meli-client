@@ -1,4 +1,4 @@
-import { ItemClass, ItemsResponse } from "src/models";
+import { Item, ItemsResponse } from "src/models";
 
 import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<ServerProps> = async ({
   locale,
 }) => {
   const search = query.search as string;
-  const response = await ItemClass.getItems(search);
+  const response = await Item.getItems(search);
 
   return {
     props: {
