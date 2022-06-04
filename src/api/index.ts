@@ -2,7 +2,7 @@ import { ItemDetailsResponse, ItemsResponse } from "src/models";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080/api/",
+  baseURL: `${process.env.API_HOST}/api/`,
 });
 
 export const getItems = async (search: string) => {
