@@ -1,5 +1,7 @@
+import * as S from "./styles";
 import React, { useCallback } from "react";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 type ErrorProps = {
   // eslint-disable-next-line no-unused-vars
@@ -8,6 +10,7 @@ type ErrorProps = {
 
 export const Error: React.FC<ErrorProps> = ({ setHasError }) => {
   const router = useRouter();
+  const { t } = useTranslation("common");
 
   const refreshPage = useCallback(() => {
     setHasError(false);
@@ -15,11 +18,11 @@ export const Error: React.FC<ErrorProps> = ({ setHasError }) => {
   }, [router, setHasError]);
 
   return (
-    <div>
-      <h2>Oops, there is an error!</h2>
-      <button type="button" onClick={refreshPage}>
-        Try again?
-      </button>
-    </div>
+    <S.Container>
+      <h1>{t("error_message")}</h1>
+      <S.Button type="button" onClick={refreshPage}>
+        {t("try_again_question")}
+      </S.Button>
+    </S.Container>
   );
 };
