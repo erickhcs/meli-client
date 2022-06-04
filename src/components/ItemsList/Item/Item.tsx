@@ -5,6 +5,7 @@ import { Item as ItemType } from "src/models";
 import Link from "next/link";
 import { Money } from "src/models";
 import React from "react";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 type ItemProps = {
@@ -12,6 +13,7 @@ type ItemProps = {
 };
 
 export const Item: React.FC<ItemProps> = ({ item }) => {
+  const { locale } = useRouter();
   const { t: translateCommon } = useTranslation("common");
   const { t: translateList } = useTranslation("item_list");
 
@@ -23,7 +25,7 @@ export const Item: React.FC<ItemProps> = ({ item }) => {
     address: { city_name },
     price,
   } = item;
-  const formattedCurrency = new Money(price).format();
+  const formattedCurrency = new Money(price).format(locale as string);
 
   return (
     <li>

@@ -1,30 +1,17 @@
-import type { GetServerSideProps, NextPage } from "next";
-import { useEffect, useState } from "react";
 import { Breadcrumb } from "components/Breadcrumb";
+import type { GetServerSideProps } from "next";
 import { ItemsList } from "components/ItemsList";
 import { ItemsResponse } from "src/models";
 import { Page } from "components/Page";
+import React from "react";
 import { getItems } from "src/api";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
 
-const ItemListPage: NextPage = () => {
-  const router = useRouter();
-  const [itemsSearch, setItemsSearch] = useState<ItemsResponse | undefined>();
-  const search = router.query.search as string;
+type ItemListPageProps = {
+  itemsSearch: ItemsResponse;
+};
 
-  useEffect(() => {
-    const fetchItems = async () => {
-      const response = await getItems(search);
-
-      setItemsSearch(response);
-    };
-
-    if (search) {
-      fetchItems();
-    }
-  }, [search]);
-
+const ItemListPage: React.FC<ItemListPageProps> = ({ itemsSearch }) => {
   return (
     <Page>
       <>
@@ -35,9 +22,20 @@ const ItemListPage: NextPage = () => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+type ServerProps = {
+  itemsSearch: ItemsResponse;
+};
+
+export const getServerSideProps: GetServerSideProps<ServerProps> = async ({
+  query,
+  locale,
+}) => {
+  const search = query.search as string;
+  const response = await getItems(search);
+
   return {
     props: {
+      itemsSearch: response,
       ...(await serverSideTranslations(locale || "", [
         "common",
         "item_details",

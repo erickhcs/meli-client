@@ -7,8 +7,8 @@ export class Money {
     this.price = price;
   }
 
-  format() {
-    return new Intl.NumberFormat(navigator.language, {
+  format(locale: string) {
+    return new Intl.NumberFormat(locale, {
       style: "currency",
       currency: this.price.currency,
     }).format(this.price.amount);

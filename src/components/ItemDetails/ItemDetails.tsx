@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ItemDetails as ItemDetailsType } from "src/models";
 import { Money } from "src/models";
 import React from "react";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 type ItemDetailsProps = {
@@ -11,11 +12,11 @@ type ItemDetailsProps = {
 };
 
 export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
+  const { locale } = useRouter();
   const { t: translateCommon } = useTranslation("common");
   const { t: translateDetails } = useTranslation("item_details");
   const { description, picture, title, condition, sold_quantity, price } = item;
-  const formattedCurrency = new Money(price).format();
-  console.log(sold_quantity);
+  const formattedCurrency = new Money(price).format(locale as string);
 
   return (
     <S.Container>
