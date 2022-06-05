@@ -26,7 +26,7 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
           src={picture}
           alt={translateCommon("item_picture_alt")}
           objectFit="contain"
-          width={340}
+          width={680}
           height={680}
         />
       </S.ImageContainer>
@@ -42,7 +42,9 @@ export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
 
         <S.ItemTitle>{title}</S.ItemTitle>
         <S.ItemPrice>{formattedCurrency}</S.ItemPrice>
-        <S.BuyButton>{translateDetails("buy_button_label")}</S.BuyButton>
+        <S.BuyButtonContainer>
+          <S.BuyButton>{translateDetails("buy_button_label")}</S.BuyButton>
+        </S.BuyButtonContainer>
       </div>
 
       {description && (
