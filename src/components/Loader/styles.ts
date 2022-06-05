@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 350px;
@@ -16,10 +17,11 @@ export const Loader = styled.div`
     }
   }
 
+  margin-bottom: ${({ theme }) => theme.space.medium};
   width: 50px;
   height: 50px;
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #383636;
+  border-top: ${({ theme }) => `10px solid ${theme.colors.blue}`};
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
 `;
