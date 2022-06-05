@@ -69,7 +69,7 @@ export const Item: React.FC<ItemProps> = ({ item }) => {
         <S.DescriptionContainer>
           <Link href={`/items/${id}`}>
             <a>
-              <S.Text>{title}</S.Text>
+              <S.TitleText>{title}</S.TitleText>
             </a>
           </Link>
         </S.DescriptionContainer>

@@ -11,11 +11,18 @@ export const Image = styled(NextImage)`
 `;
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 6fr 2fr;
-  grid-template-rows: 1fr 1fr;
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    display: grid;
+    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    padding: ${({ theme }) => theme.space.small};
+  }
+
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
-  padding: ${({ theme }) => theme.space.small};
 `;
 
 export const DescriptionContainer = styled.div`
@@ -25,20 +32,35 @@ export const DescriptionContainer = styled.div`
 `;
 
 export const PriceContainer = styled.div`
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin: ${({ theme }) => `0 0 ${theme.space.medium} 0`};
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: ${({ theme }) => `0 0 ${theme.space.medium} 0`};
 `;
 
 export const PriceText = styled.p`
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin: ${({ theme }) => `0 0 0 ${theme.space.small}`};
+  }
+
+  margin: 0;
   font-size: ${({ theme }) => theme.fontSizes.extraLarge};
-  margin: ${({ theme }) => `0 0 0 ${theme.space.small}`};
 `;
 
-export const Text = styled.p`
+export const TitleText = styled.p`
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin: ${({ theme }) => `0 0 0 ${theme.space.small}`};
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    text-align: center;
+  }
+
+  margin: 0;
   font-size: ${({ theme }) => theme.fontSizes.large};
-  margin: ${({ theme }) => `0 0 0 ${theme.space.small}`};
 `;
 
 export const CityNameText = styled.p`
