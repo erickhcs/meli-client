@@ -5,7 +5,8 @@
   "scripts": {
     "analyze": "ANALYZE=true next build",
     "dev": "next dev",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -40,6 +41,7 @@
     "husky": "8.0.0",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
+    "jest-next-dynamic": "1.0.1",
     "nodemon": "2.0.16",
     "prettier": "2.6.2",
     "the-fake-backend": "3.9.2",
