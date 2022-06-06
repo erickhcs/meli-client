@@ -16,6 +16,8 @@ export const SearchInput = () => {
   }
 
   function handleSearchButtonClick() {
+    if (search === "") return;
+
     setSearch("");
 
     router.push(`/items?search=${search}`);

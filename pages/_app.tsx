@@ -1,4 +1,4 @@
-import { GlobalStyle, theme } from "components/GlobalStyles";
+import { GlobalStyle, theme } from "src/styles/GlobalStyles";
 import { useEffect, useState } from "react";
 
 import type { AppProps } from "next/app";

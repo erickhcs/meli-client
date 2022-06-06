@@ -1,12 +1,11 @@
 import * as S from "./styles";
 
 import React from "react";
+import { useItems } from "src/models";
 
-type BreadcrumProps = {
-  categories: String[];
-};
+export const Breadcrumb: React.FC = () => {
+  const { categories } = useItems();
 
-export const Breadcrumb: React.FC<BreadcrumProps> = ({ categories }) => {
   return (
     <S.UnorderedList>
       {categories.map((category, index) => (

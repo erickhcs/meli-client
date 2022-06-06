@@ -2,20 +2,20 @@
 import * as S from "./styles";
 
 import Image from "next/image";
-import { ItemDetails as ItemDetailsType } from "src/models";
 import { Money } from "src/models";
 import React from "react";
+import { useItems } from "src/models";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
-type ItemDetailsProps = {
-  item: ItemDetailsType;
-};
-
-export const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
+export const ItemDetails: React.FC = () => {
+  const { item } = useItems();
   const { locale } = useRouter();
   const { t: translateCommon } = useTranslation("common");
   const { t: translateDetails } = useTranslation("item_details");
+
+  if (!item) return null;
+
   const { description, picture, title, condition, sold_quantity, price } = item;
   const formattedCurrency = new Money(price).format(locale as string);
 

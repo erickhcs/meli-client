@@ -1,4 +1,4 @@
-import { Item, ItemDetailsResponse } from "src/models";
+import { Item, ItemDetailsResponse, ItemsProvider } from "src/models";
 
 import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
@@ -12,10 +12,10 @@ type ItemDetailsPageProps = {
 
 const ItemDetailsPage: React.FC<ItemDetailsPageProps> = ({ itemDetails }) => {
   return (
-    <>
-      {itemDetails && <Breadcrumb categories={itemDetails.categories} />}
-      {itemDetails && <ItemDetails item={itemDetails.item} />}
-    </>
+    <ItemsProvider itemDetails={itemDetails}>
+      <Breadcrumb />
+      <ItemDetails />
+    </ItemsProvider>
   );
 };
 

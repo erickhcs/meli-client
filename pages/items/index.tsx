@@ -1,4 +1,4 @@
-import { Item, ItemsResponse } from "src/models";
+import { Item, ItemsProvider, ItemsResponse } from "src/models";
 
 import { Breadcrumb } from "components/Breadcrumb";
 import type { GetServerSideProps } from "next";
@@ -12,10 +12,10 @@ type ItemListPageProps = {
 
 const ItemListPage: React.FC<ItemListPageProps> = ({ itemsSearch }) => {
   return (
-    <>
-      {itemsSearch && <Breadcrumb categories={itemsSearch.categories} />}
-      {itemsSearch && <ItemsList items={itemsSearch.items} />}
-    </>
+    <ItemsProvider itemsSearch={itemsSearch}>
+      <Breadcrumb />
+      <ItemsList />
+    </ItemsProvider>
   );
 };
 

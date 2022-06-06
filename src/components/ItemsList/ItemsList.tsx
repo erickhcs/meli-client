@@ -2,14 +2,12 @@
 import * as S from "./styles";
 
 import { Item } from "./Item";
-import { Items } from "src/models";
 import React from "react";
+import { useItems } from "src/models";
 
-type ItemsListProps = {
-  items: Items;
-};
+export const ItemsList: React.FC = () => {
+  const { items } = useItems();
 
-export const ItemsList: React.FC<ItemsListProps> = ({ items }) => {
   return (
     <S.Container>
       {items.map((item) => (
