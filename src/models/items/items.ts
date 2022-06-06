@@ -1,4 +1,4 @@
-import { ENV, HTTPClient } from "src/config";
+import { ENVS, HTTPClient } from "src/config";
 
 export type ItemType = {
   id: string;
@@ -57,7 +57,7 @@ export class Item {
 
   static initHTTPClient() {
     if (!this.httpClient) {
-      this.httpClient = new HTTPClient(`${ENV.API_HOST}/api/`);
+      this.httpClient = new HTTPClient(`${ENVS.API_HOST}/api/`);
     }
   }
 
