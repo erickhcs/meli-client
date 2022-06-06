@@ -7,6 +7,11 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
   "plugins": ["prettier", "jsx-a11y", "react", "react-hooks"],
   "rules": {
     "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
